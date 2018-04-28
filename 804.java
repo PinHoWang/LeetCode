@@ -19,7 +19,7 @@ class Solution {
     private String convertCode(String s) {
         String code = "";
         for(int i = 0; i < s.length(); i++) {
-            code.concat(getMorseCode(s.charAt(i)));
+            code += getMorseCode(s.charAt(i));
         }
         return code;
     }
