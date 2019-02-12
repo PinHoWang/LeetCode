@@ -30,7 +30,7 @@
 // }
 
 
-/** Without memory limit excessed **/
+// * Without memory limit excessed *
 class RLEIterator {
 
     private int i = 0;
