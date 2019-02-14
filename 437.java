@@ -9,20 +9,26 @@
  */
 class Solution {
     public int pathSum(TreeNode root, int sum) {
-        // DSF + BFS Solution
+//         // DSF + BFS Solution
+//         if(root == null) return 0;
+        
+//         int count = 0;
+//         Queue<TreeNode> q = new LinkedList<>();
+//         q.add(root);
+//         while(q.size() != 0)
+//         {
+//             TreeNode n = q.poll();
+//             count += dfs(n, sum, 0);
+//             if(n.left != null) q.add(n.left);
+//             if(n.right != null) q.add(n.right);
+//         }
+//         return count;
+        
+        
+        // DFS + DFS Solution
         if(root == null) return 0;
         
-        int count = 0;
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
-        while(q.size() != 0)
-        {
-            TreeNode n = q.poll();
-            count += dfs(n, sum, 0);
-            if(n.left != null) q.add(n.left);
-            if(n.right != null) q.add(n.right);
-        }
-        return count;
+        return dfs(root, sum, 0) + pathSum(root.left, sum) + pathSum(root.right, sum);
     }
     
     private int dfs(TreeNode n, int sum, int total)
