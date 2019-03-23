@@ -27,3 +27,39 @@ class Solution {
         helper(root.right, ordered);
     }
 }
+
+
+// No need to traverse all nodes
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    private int result = Integer.MAX_VALUE;
+    private int count = 0;
+    
+    public int kthSmallest(TreeNode root, int k) {
+        if(root == null) return -1;
+        
+        count = k;
+        helper(root);
+        
+        return result;
+    }
+    
+    private void helper(TreeNode root) {
+        if(root == null) return;
+        helper(root.left);
+        count--;
+        if(count == 0) {
+            result = root.val;
+            return;
+        }
+        helper(root.right);
+    }
+}
