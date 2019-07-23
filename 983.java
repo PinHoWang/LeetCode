@@ -21,7 +21,6 @@ class Solution {
                 dp[i] = dp[i-1];
             }
         }
-        
         return dp[dp.length-1];
         
     }
